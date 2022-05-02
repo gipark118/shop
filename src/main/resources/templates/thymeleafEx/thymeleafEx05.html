@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ThymeleafEx05</title>
+</head>
+<body>
+    <h1>Thymeleaf 링크처리 예제 페이지</h1>
+    <p style="font-weight: bold">상대 경로</p>
+    <div>
+        <a th:href="@{/thymeleaf/ex01}">예제1 페이지로 이동</a>
+    </div>
+    <div>
+        <a th:href="@{/thymeleaf/ex02}">예제2 페이지로 이동</a>
+    </div>
+    <div>
+        <a th:href="@{/thymeleaf/ex03}">예제3 페이지로 이동</a>
+    </div>
+    <div>
+        <a th:href="@{/thymeleaf/ex04}">예제4 페이지로 이동</a>
+    </div>
+    <div>
+        <a th:href="@{/thymeleaf/ex06(param1 = '파라미터 데이터1', param2 = '파라미터 데이터2')}">thymeleaf 파라미터 전달</a>
+    </div>
+    <p style="font-weight: bold"> 절대 경로</p>
+    <div>
+        <a th:href="@{http://www.thymeleaf.org/}">thymeleaf 공식 페이지로 이동</a>
+    </div>
+</body>
+</html>
