@@ -16,11 +16,11 @@ public class CartItem {
     @Column(name = "cart_item_id")
     private Long id;                // 상품 코드
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id")
     private Cart cart;              // 장바구니 엔티티
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;              // 상품 엔티티
 
