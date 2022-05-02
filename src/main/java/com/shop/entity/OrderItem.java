@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Table(name = "order_item")
 @Getter
 @Setter
-public class OrderItem {
+public class OrderItem extends BaseEntity{
 
     @Id
     @GeneratedValue
@@ -29,8 +29,4 @@ public class OrderItem {
     private int orderPrice;             // 주문가격
 
     private int count;                  // 수량
-
-    private LocalDateTime regTime;      // 등록시간
-
-    private LocalDateTime updateTime;   // 수정시간
 }
