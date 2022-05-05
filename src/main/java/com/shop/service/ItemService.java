@@ -1,6 +1,7 @@
 package com.shop.service;
 
 import com.shop.dto.ItemFormDTO;
+import com.shop.dto.ItemImgDTO;
 import com.shop.entity.Item;
 import com.shop.entity.ItemImg;
 import com.shop.repository.ItemImgRepository;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -39,5 +42,24 @@ public class ItemService {
         }
 
         return item.getId();
+    }
+
+    @Transactional(readOnly = true)
+    public ItemFormDTO getItemDtl(Long itemId) {
+
+        List<ItemImg> itemImgList = itemImgRepository.findByItemIdOrderByIdAsc(itemId);
+        List<ItemImgDTO> itemImgDTOList = new ArrayList<>();
+
+        for (ItemImg itemImg : itemImgList) {
+            ItemImgDTO itemImgDTO = ItemImgDTO.of(itemImg);
+            itemImgDTOList.add(itemImgDTO);
+        }
+
+        Item item = itemRepository.findById(itemId)
+                .orElseThrow(EntityNotFoundException::new);
+        ItemFormDTO itemFormDTO = ItemFormDTO.of(item);
+        itemFormDTO.setItemImgDTOList(itemImgDTOList);
+
+        return itemFormDTO;
     }
 }
