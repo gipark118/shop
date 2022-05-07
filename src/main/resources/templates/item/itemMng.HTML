@@ -15,10 +15,10 @@
             });
 
             function page(page){
-                var searchDateType = $("#searchDateType").val();
-                var searchSellStatus = $("#searchSellStatus").val();
-                var searchBy = $("#searchBy").val();
-                var searchQuery = $("#searchQuery").val();
+                let searchDateType = $("#searchDateType").val();
+                let searchSellStatus = $("#searchSellStatus").val();
+                let searchBy = $("#searchBy").val();
+                let searchQuery = $("#searchQuery").val();
 
                 location.href="/admin/items/" + page + "?searchDateType=" + searchDateType
                     + "&searchSellStatus=" + searchSellStatus
