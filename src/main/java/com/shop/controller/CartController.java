@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
-import java.security.Principa기l;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
